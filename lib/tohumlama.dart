@@ -30,7 +30,7 @@ class TohumlamaSayfasi extends StatelessWidget {
         backgroundColor: Colors.teal,
         centerTitle: true,
       ),
-      // ÖDEV RAPORU İÇİN AÇIKLAMA: ListView.builder ile performansı yüksek bir liste oluşturduk.
+      
       body: ListView.builder(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         itemCount: irklar.length,
@@ -45,7 +45,7 @@ class TohumlamaSayfasi extends StatelessWidget {
             child: InkWell(
               borderRadius: BorderRadius.circular(20),
               onTap: () {
-                // ÖDEV RAPORU İÇİN AÇIKLAMA: Detay sayfasına Navigator.push ile geçiş yapıyoruz.
+                
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => IrkDetaySayfasi(irk: irk, internettenMi: internettenMi)),
@@ -88,34 +88,32 @@ class TohumlamaSayfasi extends StatelessWidget {
   }
 }
 
-// ---------------------------------------------------------
-// DETAY SAYFASI VE TOHUMLAMA KAYIT FORMU
-// ---------------------------------------------------------
+
 class IrkDetaySayfasi extends StatelessWidget {
   final Map<String, dynamic> irk;
   final bool internettenMi;
 
   const IrkDetaySayfasi({super.key, required this.irk, required this.internettenMi});
 
-  // AŞAĞIDAN KAYARAK AÇILAN KAYIT FORMU (İşte geri getirdiğimiz kısım!)
+ )
   void _kayitFormuGoster(BuildContext context) {
     showModalBottomSheet(
       context: context,
-      isScrollControlled: true, // Klavyenin formu yukarı itmesine izin verir
+      isScrollControlled: true, 
       shape: const RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(25))),
       builder: (context) => Padding(
-        // EdgeInsets.only ile klavyenin boyunu (viewInsets.bottom) alıp formu yukarı kaydırıyoruz
+       
         padding: EdgeInsets.only(
           bottom: MediaQuery.of(context).viewInsets.bottom, 
           left: 20, right: 20, top: 20
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.min, // Sadece içindeki elemanlar kadar yer kaplar
+          mainAxisSize: MainAxisSize.min, 
           children: [
             Text('${irk['irk']} Tohumlama Kaydı', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold, color: Colors.teal)),
             const SizedBox(height: 20),
             
-            // Küpe Numarası Girdisi
+           
             TextField(
               decoration: InputDecoration(
                 labelText: 'Hayvan Küpe Numarası',
@@ -127,7 +125,7 @@ class IrkDetaySayfasi extends StatelessWidget {
             ),
             const SizedBox(height: 15),
             
-            // Üretici Adı Girdisi
+           
             TextField(
               decoration: InputDecoration(
                 labelText: 'Üretici Adı / Çiftlik',
@@ -138,7 +136,7 @@ class IrkDetaySayfasi extends StatelessWidget {
             ),
             const SizedBox(height: 25),
             
-            // Kaydet Butonu
+           
             SizedBox(
               width: double.infinity,
               height: 50,
@@ -148,7 +146,7 @@ class IrkDetaySayfasi extends StatelessWidget {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                 ),
                 onPressed: () {
-                  Navigator.pop(context); // Formu kapatır
+                  Navigator.pop(context);
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Row(
@@ -212,7 +210,7 @@ class IrkDetaySayfasi extends StatelessWidget {
             
             const SizedBox(height: 40),
             
-            // GARDAŞ İŞTE DETAY SAYFASININ EN ALTINA EKLEDİĞİMİZ KAYIT BUTONU
+            
             SizedBox(
               width: double.infinity,
               height: 55,
@@ -222,7 +220,7 @@ class IrkDetaySayfasi extends StatelessWidget {
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                   elevation: 5,
                 ),
-                onPressed: () => _kayitFormuGoster(context), // Tıklayınca yukarıdaki formu açar
+                onPressed: () => _kayitFormuGoster(context), 
                 icon: const Icon(Icons.add_task, color: Colors.white),
                 label: const Text('Tohumlama Kaydı Ekle', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white)),
               ),
