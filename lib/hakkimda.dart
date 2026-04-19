@@ -6,7 +6,7 @@ class HakkimdaSayfasi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F7F6), // Açık ve ferah klinik arka planı
+      backgroundColor: const Color(0xFFF4F7F6), 
       appBar: AppBar(
         title: const Text('Profilim', style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Colors.teal,
@@ -16,7 +16,7 @@ class HakkimdaSayfasi extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // ÜST KISIM: Kavisli yeşil arka plan ve Profil Fotoğrafı
+           
             Stack(
               alignment: Alignment.bottomCenter,
               children: [
@@ -27,22 +27,22 @@ class HakkimdaSayfasi extends StatelessWidget {
                     color: Colors.teal,
                     borderRadius: BorderRadius.vertical(bottom: Radius.circular(40)),
                   ),
-                  margin: const EdgeInsets.only(bottom: 60), // Fotoğrafın yarısının dışarı taşması için boşluk
+                  margin: const EdgeInsets.only(bottom: 60), 
                 ),
-                // Profil Fotoğrafı (Etrafında beyaz bir çerçeve ile)
+                
                 const CircleAvatar(
                   radius: 70,
                   backgroundColor: Colors.white,
                   child: CircleAvatar(
                     radius: 65,
-                    // Kendi vesikalık veya havalı bir fotoğrafını assets klasörüne atıp ismini buraya yaz gardaş
+                    
                     backgroundImage: AssetImage('assets/profil.jpeg'), 
                   ),
                 ),
               ],
             ),
             
-            // İSİM VE UNVAN KISMI
+         
             const Text(
               'Vet. Hek. İlker Kağan Çelik',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.w900, color: Colors.teal),
@@ -54,7 +54,7 @@ class HakkimdaSayfasi extends StatelessWidget {
             ),
             const SizedBox(height: 30),
 
-            // ÜSTÜNE BASINCA AÇILAN BİLGİ KARTLARI (ExpansionTile)
+            
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
@@ -84,21 +84,21 @@ class HakkimdaSayfasi extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 40), // En altta rahat kaydırma boşluğu
+            const SizedBox(height: 40), 
           ],
         ),
       ),
     );
   }
 
-  // TIKLAYINCA AŞAĞI AÇILAN KARTLARI ÜRETEN ÖZEL TASARIM (CSS Mantığı)
+  
   Widget _buildAcanKart({required IconData ikon, required String baslik, required String altBaslik, required String icerik}) {
     return Card(
       elevation: 4,
       shadowColor: Colors.teal.withOpacity(0.2),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
       child: Theme(
-        // Açıldığında araya giren çirkin çizgileri gizlemek için tema ayarı
+        
         data: ThemeData().copyWith(dividerColor: Colors.transparent),
         child: ExpansionTile(
           iconColor: Colors.teal,
