@@ -15,12 +15,12 @@ class AnaSayfa extends StatelessWidget {
     {'isim': 'Karbonat', 'tur': 'Sindirim', 'icerik': 'Yem geçişlerinde oluşan asidozu engellemek için kullanılır.', 'foto': 'assets/karbonat.jpeg'},
   ];
 
-  // Tıklayınca açılan pencere
+  
   void _detayGoster(BuildContext context, Map<String, String> urun) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), // Yuvarlak köşeli şık pencere
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)), 
         title: Text(
           urun['isim']!, 
           textAlign: TextAlign.center,
@@ -29,20 +29,20 @@ class AnaSayfa extends StatelessWidget {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // Pencere içindeki orta boy fotoğraf
+            
             Image.asset(urun['foto']!, height: 120, fit: BoxFit.contain),
             const SizedBox(height: 15),
             Text(urun['icerik']!, textAlign: TextAlign.center, style: const TextStyle(fontSize: 15)),
           ],
         ),
-        actionsAlignment: MainAxisAlignment.spaceEvenly, // Butonları yan yana ortala
+        actionsAlignment: MainAxisAlignment.spaceEvenly, 
         actions: [
-          // KAPAT BUTONU
+         
           TextButton(
             onPressed: () => Navigator.pop(context),
             child: const Text('Kapat', style: TextStyle(color: Colors.grey, fontSize: 16, fontWeight: FontWeight.bold)),
           ),
-          // FİYAT AL BUTONU
+         
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
@@ -50,8 +50,8 @@ class AnaSayfa extends StatelessWidget {
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),
             onPressed: () {
-              Navigator.pop(context); // Önce pencereyi kapatır
-              // Alt tarafta yeşil bildirim mesajı çıkartır
+              Navigator.pop(context); 
+              
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('${urun['isim']} için fiyat talebi kliniğe iletildi!'),
@@ -70,7 +70,7 @@ class AnaSayfa extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[100], // Cırt renkleri sildik, ferah gri yaptık
+      backgroundColor: Colors.grey[100], 
       appBar: AppBar(
         title: const Text('Veteriner Ürünleri', style: TextStyle(fontWeight: FontWeight.bold)), 
         backgroundColor: Colors.green,
@@ -80,7 +80,7 @@ class AnaSayfa extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, 
-          childAspectRatio: 0.8, // Kartların yüksekliği
+          childAspectRatio: 0.8, 
           crossAxisSpacing: 12,
           mainAxisSpacing: 12,
         ),
@@ -96,8 +96,7 @@ class AnaSayfa extends StatelessWidget {
               child: Column(
                 children: [
                   Expanded(
-                    // GARDAŞ FOTOĞRAF BOYU BURADA: 
-                    // Padding'i 15 yaparak tam "Orta" boyutta olmalarını sağladık.
+                  
                     child: Padding(
                       padding: const EdgeInsets.all(15.0), 
                       child: Image.asset(urun['foto']!, width: double.infinity, fit: BoxFit.contain),
