@@ -15,7 +15,7 @@ class VeterinerApp extends StatelessWidget {
     return MaterialApp(
       title: 'Veteriner Uygulaması',
       theme: ThemeData(
-        primarySwatch: Colors.green, // Veteriner konseptine uygun yeşil tema
+        primarySwatch: Colors.green, 
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const AnaEkran(),
@@ -34,7 +34,7 @@ class AnaEkran extends StatefulWidget {
 class _AnaEkranState extends State<AnaEkran> {
   int _seciliSayfaIndex = 0;
 
-  // Sayfalarımızın listesi
+  
   final List<Widget> _sayfalar = [
     const AnaSayfa(),
     const TohumlamaSayfasi(),
@@ -62,7 +62,7 @@ class _AnaEkranState extends State<AnaEkran> {
             label: 'Ana Sayfa',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.pets), // Hayvan/Tohumlama ikonu
+            icon: Icon(Icons.pets), 
             label: 'Tohumlama',
           ),
           BottomNavigationBarItem(
